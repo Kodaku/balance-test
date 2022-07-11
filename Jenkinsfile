@@ -35,15 +35,5 @@ pipeline {
                 sh "docker rm balance-test"
             }
         }
-
-        stage("Push to DockerHub") {
-            steps {
-                script {
-                    docker.withRegistry("https://registry.hub.docker.com", registryCredential) {
-                        dockerImage.push()
-                    }
-                }
-            }
-        }
     }
 }
