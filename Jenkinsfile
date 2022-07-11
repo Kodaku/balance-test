@@ -20,19 +20,19 @@ pipeline {
 
         stage("Testing - running in Jenkins node") {
             steps {
-                powershell "docker run --network='host' --name balance-test ${img}"
+                sh "docker run --network='host' --name balance-test ${img}"
             }
         }
 
         stage("Stopping running container") {
             steps {
-                powershell "docker stop balance-test"
+                sh "docker stop balance-test"
             }
         }
 
         stage("Removing the container") {
             steps {
-                powershell "docker rm balance-test"
+                sh "docker rm balance-test"
             }
         }
 
